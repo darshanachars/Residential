@@ -5,9 +5,9 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.residential.backend.model.Students;
-
+import com.residential.backend.model.Admins;
 @Repository
-public interface StudentRepo1 extends JpaRepository<Students, String>{
-	Optional<Students> findByEmail(String email);
+public interface AdminRepo extends JpaRepository<Admins, String> {
+	
+	public Optional<Admins> findByEmail(String email);
 }

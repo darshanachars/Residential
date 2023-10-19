@@ -13,15 +13,20 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 @Entity
 public class Roles {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	
 	private String role;
+	
 	@ManyToMany(mappedBy = "assignedRoles")
 	@JsonIgnore
 	private Set<Students> students=new HashSet<>();
 	
-	
+	@ManyToMany(mappedBy = "adminRoles")
+	@JsonIgnore
+	private Set<Admins> admins=new HashSet<>();
 	
 	
 	public Set<Students> getStudents() {

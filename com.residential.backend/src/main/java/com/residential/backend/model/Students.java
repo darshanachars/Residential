@@ -22,9 +22,8 @@ import jakarta.persistence.ManyToMany;
 @Entity
 public class Students implements UserDetails {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
-	private long erp;
+	private String erp;
+	
 	private String name;
 	private String lastName;
 	private String parentName;
@@ -35,19 +34,11 @@ public class Students implements UserDetails {
 	private String password;
 	
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JsonIgnore
+	
 	private Set<Roles> assignedRoles=new HashSet<>();
 
 	
-	
-	
-	public long getErp() {
-		return erp;
-	}
 
-	public void setErp(long erp) {
-		this.erp = erp;
-	}
 
 	public String getLastName() {
 		return lastName;
@@ -97,12 +88,12 @@ public class Students implements UserDetails {
 		this.address = address;
 	}
 
-	public int getId() {
-		return id;
+	public String getErp() {
+		return erp;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setId(String erp) {
+		this.erp = erp;
 	}
 
 	public String getName() {
@@ -142,7 +133,7 @@ public class Students implements UserDetails {
 	@Override
 	public String getUsername() {
 		// TODO Auto-generated method stub
-		return this.name;
+		return this.email;
 	}
 
 	@Override
@@ -171,7 +162,7 @@ public class Students implements UserDetails {
 
 	@Override
 	public String toString() {
-		return "Students [id=" + id + ", erp=" + erp + ", name=" + name + ", lastName=" + lastName + ", parentName="
+		return "Students [erp=" + erp +  ", name=" + name + ", lastName=" + lastName + ", parentName="
 				+ parentName + ", gender=" + gender + ", phoneNo=" + phoneNo + ", email=" + email + ", address="
 				+ address + ", password=" + password + ", assignedRoles=" + assignedRoles + "]";
 	}

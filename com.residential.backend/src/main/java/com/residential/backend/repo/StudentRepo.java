@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.residential.backend.model.Students;
 
 @Repository
-public interface StudentRepo extends JpaRepository<Students, Integer> {
-	public Optional<Students> findByName(String name);
+public interface StudentRepo extends JpaRepository<Students, String> {
+	public Optional<Students> findByEmail(String email);
+	public Optional<Students> findByErp(String erp);
 }

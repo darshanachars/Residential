@@ -1,26 +1,20 @@
 package com.residential.backend.model;
 
 import lombok.Builder;
+import lombok.Data;
 
 @Builder
+@Data
 public class JwtRequest {
-	private String name;
+	private String role;
+	private String email;
 	private String password;
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public JwtRequest(String name, String password) {
+	
+	
+	public JwtRequest(String role,String name, String password) {
 		super();
-		this.name = name;
+		this.role=role;
+		this.email = name;
 		this.password = password;
 	}
 	public JwtRequest() {
